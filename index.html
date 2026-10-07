@@ -8,87 +8,7 @@
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" href="icon.svg" type="image/svg+xml">
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=Figtree:wght@400;600&display=swap" rel="stylesheet">
-<style>
-:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
-html{scroll-padding-top:env(safe-area-inset-top,0px)}
-*{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 Figtree,system-ui,sans-serif}
-main{max-width:480px;margin:0 auto;padding:16px 16px 110px}
-h1,.big{font-family:"Bricolage Grotesque",Figtree,sans-serif}
-.nav{display:flex;align-items:center;justify-content:space-between}
-.nav b{font-size:18px;text-transform:capitalize}
-.nav button{background:none;border:1px solid var(--line);color:var(--ink);width:40px;height:40px;border-radius:50%;font-size:18px;cursor:pointer}
-.hero{padding:28px 0 20px}
-.hero small{color:var(--mute)}
-.big{font-size:52px;font-weight:800;letter-spacing:-.03em;line-height:1.1;margin:4px 0 14px}
-.row{display:flex;gap:24px}
-.row div{flex:1}
-.row span{display:block;color:var(--mute);font-size:14px}
-.row strong{font-size:20px}
-.in{color:var(--in)}.out{color:var(--out)}
-section{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px;margin-top:16px}
-h2{font-size:16px;margin:0 0 12px}
-.cat{margin-bottom:12px}
-.cat:last-child{margin-bottom:0}
-.cat .l{display:flex;justify-content:space-between;font-size:14px}
-.bar{height:8px;background:var(--line);border-radius:4px;margin-top:4px;overflow:hidden}
-.bar i{display:block;height:100%;background:var(--out);border-radius:4px}
-.tx{display:flex;align-items:center;gap:12px;padding:10px 0;border-top:1px solid var(--line)}
-.tx:first-of-type{border-top:0}
-.tx .m{flex:1;min-width:0}
-.tx .m b{display:block;font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.tx .m span{font-size:13px;color:var(--mute)}
-.tx button{background:none;border:0;color:var(--mute);font-size:20px;cursor:pointer;padding:4px 8px}
-.empty{color:var(--mute);text-align:center;padding:12px 0;margin:0}
-.add{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(16px + env(safe-area-inset-bottom,0px));background:var(--btn);color:var(--btnt);border:0;border-radius:28px;padding:16px 28px;font:600 16px Figtree,sans-serif;cursor:pointer;box-shadow:0 6px 20px rgba(0,0,0,.25)}
-#sheet{position:fixed;inset:0;background:rgba(0,0,0,.45);display:none;align-items:flex-end;justify-content:center;z-index:5}
-#sheet.open{display:flex}
-#sheet form{background:var(--card);width:100%;max-width:480px;border-radius:20px 20px 0 0;padding:20px 16px calc(20px + env(safe-area-inset-bottom,0px));display:grid;gap:12px}
-.seg{display:grid;grid-template-columns:1fr 1fr;gap:6px}
-.seg button{padding:12px;border:1px solid var(--line);background:none;color:var(--ink);border-radius:12px;font:600 15px Figtree,sans-serif;cursor:pointer}
-.seg button.on{background:var(--btn);color:var(--btnt);border-color:var(--btn)}
-input,select{width:100%;padding:13px;border:1px solid var(--line);border-radius:12px;background:var(--bg);color:var(--ink);font:16px Figtree,sans-serif}
-.save{background:var(--btn);color:var(--btnt);border:0;border-radius:12px;padding:15px;font:600 16px Figtree,sans-serif;cursor:pointer}
-:root{--bg:#F1ECFF;--card:#fff;--ink:#1B1033;--mute:#6B5F8A;--line:#E3DAF7;--bd:#1B1033;--sh:#1B1033;--in:#0B8A5F;--out:#E5484D;--btn:#C6F432;--btnt:#1B1033;--hero:#2B1768;--pop:#C6F432}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#140B29;--card:#21153D;--ink:#F3EDFF;--mute:#A99BCB;--line:#33265A;--bd:#6A55A8;--sh:#000;--in:#4FE0A8;--out:#FF8A8F;--hero:#3A1F8C}}
-:root[data-theme="dark"]{--bg:#140B29;--card:#21153D;--ink:#F3EDFF;--mute:#A99BCB;--line:#33265A;--bd:#6A55A8;--sh:#000;--in:#4FE0A8;--out:#FF8A8F;--hero:#3A1F8C}
-body{background-image:radial-gradient(var(--line) 1.5px,transparent 1.5px);background-size:22px 22px}
-.logo{font-size:30px;margin:0 0 14px;letter-spacing:-.02em}
-.logo span{display:inline-block;transform:rotate(-12deg);margin-left:4px}
-.nav b{background:var(--card);border:2px solid var(--bd);border-radius:20px;padding:6px 18px;box-shadow:3px 3px 0 var(--sh)}
-.nav button{background:var(--card);border:2px solid var(--bd);box-shadow:2px 2px 0 var(--sh)}
-.hero{position:relative;background:var(--hero);color:#fff;border:2px solid var(--bd);border-radius:26px;padding:22px;margin:18px 0 4px;box-shadow:5px 5px 0 var(--sh)}
-.hero small,.hero .row span{color:rgba(255,255,255,.75)}
-.hero .big{color:#fff;font-size:54px}
-.hero .big.out{color:#FFA3A8}
-.hero .in{color:#7CF2C4}.hero .out{color:#FFA3A8}
-#mood{position:absolute;top:16px;right:16px;width:62px;height:62px;border-radius:50%;background:var(--pop);border:2px solid var(--bd);display:grid;place-items:center;font-size:32px;transform:rotate(8deg)}
-section{border:2px solid var(--bd);border-radius:22px;box-shadow:4px 4px 0 var(--sh)}
-h2{font-family:"Bricolage Grotesque",Figtree,sans-serif;font-size:19px}
-main section:nth-of-type(1) h2::before{content:"⚡ "}
-main section:nth-of-type(2) h2::before{content:"💸 "}
-main section:nth-of-type(3) h2::before{content:"🧾 "}
-.bar{height:12px;border:1.5px solid var(--bd);border-radius:8px;background:var(--card)}
-.bar i{background:linear-gradient(90deg,#FF9A62,var(--out))}
-.ic{font-style:normal;width:42px;height:42px;border-radius:14px;background:var(--line);display:grid;place-items:center;font-size:20px;flex:none}
-.add{border:2px solid var(--bd);box-shadow:4px 4px 0 var(--sh);font-size:17px}
-.add:active{transform:translateX(-50%) translate(3px,3px);box-shadow:1px 1px 0 var(--sh)}
-#sheet form{border:2px solid var(--bd);border-bottom:0}
-input,select{border:2px solid var(--bd);border-radius:14px}
-.seg button{border:2px solid var(--bd)}
-.seg button.on{background:var(--btn);color:var(--btnt)}
-.save{border:2px solid var(--bd);box-shadow:3px 3px 0 var(--sh)}
-#pace{font-weight:600}
-#pace.good{color:var(--in)}#pace.bad{color:var(--out)}
-#chart text{font:11px Figtree,sans-serif;fill:var(--mute)}
-:root{--h:265;--s:60;--pop:#C6F432;--btn:var(--pop);--bg:hsl(var(--h) calc(var(--s)*1%) 95%);--card:#fff;--ink:hsl(var(--h) calc(var(--s)*.6%) 12%);--bd:var(--ink);--sh:var(--ink);--mute:hsl(var(--h) calc(var(--s)*.3%) 42%);--line:hsl(var(--h) calc(var(--s)*1%) 89%);--hero:hsl(var(--h) calc(var(--s)*1%) 26%)}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:hsl(var(--h) calc(var(--s)*1%) 9%);--card:hsl(var(--h) calc(var(--s)*1%) 14%);--ink:hsl(var(--h) calc(var(--s)*1%) 95%);--mute:hsl(var(--h) calc(var(--s)*.4%) 72%);--line:hsl(var(--h) calc(var(--s)*1%) 20%);--bd:hsl(var(--h) calc(var(--s)*1%) 42%);--sh:#000;--hero:hsl(var(--h) calc(var(--s)*1%) 32%)}}
-:root[data-theme="dark"]{--bg:hsl(var(--h) calc(var(--s)*1%) 9%);--card:hsl(var(--h) calc(var(--s)*1%) 14%);--ink:hsl(var(--h) calc(var(--s)*1%) 95%);--mute:hsl(var(--h) calc(var(--s)*.4%) 72%);--line:hsl(var(--h) calc(var(--s)*1%) 20%);--bd:hsl(var(--h) calc(var(--s)*1%) 42%);--sh:#000;--hero:hsl(var(--h) calc(var(--s)*1%) 32%)}
-.cores{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 14px}
-.cores button{width:30px;height:30px;border-radius:50%;border:2px solid var(--bd);box-shadow:2px 2px 0 var(--sh);cursor:pointer;padding:0}
-.cores button.on{outline:3px solid var(--ink);outline-offset:2px}
-:focus-visible{outline:3px solid var(--in);outline-offset:2px}
-</style>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 <main>
@@ -118,12 +38,7 @@ input,select{border:2px solid var(--bd);border-radius:14px}
 <button class="seg-cancel" type="button" id="fechar" style="background:none;border:0;color:var(--mute);font:600 15px Figtree,sans-serif;cursor:pointer">Cancelar</button>
 </form>
 </div>
-<script>
-const CATS={out:["Moradia","Mercado","Transporte","Lazer","Saúde","Contas","Outros"],in:["Salário","Extra","Outros"]};
-const KEY="meubolso:v1";
-const EMO={Moradia:"🏠",Mercado:"🛒",Transporte:"🚌",Lazer:"🎮",Saúde:"💊",Contas:"🧾",Outros:"✨",Salário:"💼",Extra:"🎁"};
-let tx=[],tipo="out",hoje=new Date(),mes=hoje.getFullYear()+"-"+String(hoje.getMonth()+1).padStart(2,"0");
-try{tx=JSON.parse(localStorage.getItem(KEY)||"[]")}catch(e){tx=[]}
-const $=id=>document.getElementById(id);
-const brl=n=>n.toLocaleString("pt-BR",{style:"currency",currency:"BRL"});
-function salvar(){try{localStorage.setItem(KEY,JSON.str
+<script src="app1.js"></script>
+<script src="app2.js"></script>
+</body>
+</html>
